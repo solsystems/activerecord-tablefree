@@ -1,10 +1,10 @@
 # -*- ruby -*-
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
-require 'activerecord-tablefree/version'
+#require 'activerecord-tablefree/version'
 
 Gem::Specification.new do |gem|
   gem.name          = 'activerecord-tablefree'
-  gem.version       = ActiveRecord::Tablefree::VERSION
+  gem.version       = '3.1.4'
   gem.platform      = Gem::Platform::RUBY
   gem.authors       = ['Jarl Friis', 'Kenneth Kalmer', 'Michal Zima', 'Peter Boling']
   gem.email         = ['jarl@softace.dk', 'peter.boling@gmail.com']
@@ -24,10 +24,10 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency('activerecord', '>= 5.0.0')
 
-  gem.add_development_dependency('bundler', '~> 1.16.0')
+  #gem.add_development_dependency('bundler', '~> 1.16.0')
   gem.add_development_dependency('rake', '~> 12', '> 0')
 
-  #  gem.add_development_dependency("rails") # This is in the appraisal gemfiles
+  #gem.add_development_dependency("rails") # This is in the appraisal gemfiles
   gem.add_development_dependency('sqlite3', '~> 1.3')
 
   gem.add_development_dependency('appraisal', '~> 1.0')
