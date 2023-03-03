@@ -4,7 +4,7 @@ $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.name          = 'activerecord-tablefree'
-  gem.version       = '3.1.4'
+  gem.version       = '3.1.5'
   gem.platform      = Gem::Platform::RUBY
   gem.authors       = ['Jarl Friis', 'Kenneth Kalmer', 'Michal Zima', 'Peter Boling']
   gem.email         = ['jarl@softace.dk', 'peter.boling@gmail.com']
