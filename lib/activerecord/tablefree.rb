@@ -88,8 +88,7 @@ module ActiveRecord
       # Register a new column.
       def column(name, sql_type = nil, default = nil, null = true)
         cast_class = "ActiveRecord::Type::#{sql_type.to_s.camelize}".constantize rescue nil
-        cast_class = ActiveRecord::Type::String if cast_class.blank?
-        raise InvalidColumnType, "sql_type is #{sql_type} (#{sql_type.class}), which is not supported" unless cast_class.respond_to?(:new)
+        cast_class = ActiveRecord::Type::String unless cast_class.respond_to?(:new)
         cast_type = cast_class.new
 
         sql_type_metadata = ActiveRecord::ConnectionAdapters::SqlTypeMetadata.new(
