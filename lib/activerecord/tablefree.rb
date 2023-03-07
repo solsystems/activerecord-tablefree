@@ -97,7 +97,7 @@ module ActiveRecord
           precision: cast_type.precision,
           scale: cast_type.scale)
 
-        column = ActiveRecord::ConnectionAdapters::Column.new(name.to_s, sql_type_metadata)
+        column = ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default, "ActiveRecord::Type::String", null)
         tablefree_options[:columns_hash][name.to_s] = column
       end
 
