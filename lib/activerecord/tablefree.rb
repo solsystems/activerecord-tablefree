@@ -87,18 +87,8 @@ module ActiveRecord
 
       # Register a new column.
       def column(name, sql_type = nil, default = nil, null = true)
-        cast_class = "ActiveRecord::Type::#{sql_type.to_s.camelize}".constantize rescue nil
-        cast_class = ActiveRecord::Type::String unless cast_class.respond_to?(:new)
-        cast_type = cast_class.new
-
-        sql_type_metadata = ActiveRecord::ConnectionAdapters::SqlTypeMetadata.new(
-          sql_type: cast_type.type.to_s,
-          type: cast_type.type,
-          limit: cast_type.limit,
-          precision: cast_type.precision,
-          scale: cast_type.scale)
-
-        tablefree_options[:columns_hash][name.to_s] = ActiveRecord::ConnectionAdapters::Column.new(name.to_s, sql_type_metadata)
+        tablefree_options[:columns_hash][name.to_s] = ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default,
+      sql_type.to_s, null)
       end
 
       # Register a set of columns with the same SQL type
