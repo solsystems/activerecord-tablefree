@@ -96,7 +96,8 @@ module ActiveRecord
           precision: cast_type.precision,
           scale: cast_type.scale)
 
-        tablefree_options[:columns_hash][name.to_s] = ActiveRecord::ConnectionAdapters::Column.new(name.to_s, nil, cast_class.to_s)
+        column = ActiveRecord::ConnectionAdapters::Column.new(name.to_s, sql_type_metadata)
+        tablefree_options[:columns_hash][name.to_s] = column
       end
 
       # Register a set of columns with the same SQL type
