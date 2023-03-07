@@ -88,7 +88,7 @@ module ActiveRecord
       # Register a new column.
       def column(name, sql_type = nil, default = nil, null = true)
         sql_type = :string if sql_type.nil?
-        cast_type = ActiveRecord::Type.const_get(sql_type.to_s.camelize).new
+        cast_type = ActiveRecord::Type.const_get('String').new
 
         sql_type_metadata = ActiveRecord::ConnectionAdapters::SqlTypeMetadata.new(
           sql_type: cast_type.type.to_s,
